@@ -1,34 +1,48 @@
 # Project Title
+EchoLingo
 
 ## Overview
 
-What is your app? Brief description in a couple of sentences.
+EchoLingo is a cutting-edge multilingual virtual assistant designed to facilitate seamless communication and information access across multiple languages. By leveraging advanced speech-to-text and conversational AI technologies, EchoLingo aims to break down language barriers, offering users an intuitive and responsive platform for cross-lingual interactions.
 
 ### Problem
 
-Why is your app needed? Background information around any pain points or other reasons.
+In our increasingly interconnected world, the need for effective multilingual communication tools is paramount. Traditional text-based translators or assistants often struggle with the nuances of spoken language, leading to miscommunication. EchoLingo addresses this by providing real-time, accurate voice translation and responses, enhancing understanding and engagement in diverse linguistic contexts.
 
 ### User Profile
 
-Who will use your app? How will they use it? Any special considerations that your app must take into account.
+EchoLingo targets a broad user base, including international travelers, expatriates, multilingual families, and businesses with a global clientele. Users can interact with the assistant to obtain information, perform tasks, or learn languages, all in their preferred language. Special considerations include ensuring cultural sensitivity and accommodating various dialects and accents.
 
 ### Features
 
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
+Voice-Activated Commands: Users can speak to EchoLingo in their native language to perform various tasks.
+Real-Time Translation: Instant translation of spoken language into the user's chosen language.
+Information Retrieval: Answering questions and providing information based on user queries.
+Multilingual Support: Support for multiple languages, with easy switching between them.
+Personalization: Learning user preferences and customizing responses accordingly.
 
 ## Implementation
 
 ### Tech Stack
 
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
+Frontend: React for building a dynamic, user-friendly interface.
+Backend: Node.js with Express for robust server-side functionality.
+Database: MySQL for data storage, with Knex.js as a query builder to simplify database operations.
+Authentication: Passport.js for secure user authentication and session management.
+Libraries: Axios, Sass, UUID, Nodemon, Cors, Dotenv, Knex, MySQL
 
 ### APIs
 
-List any external sources of data that will be used in your app.
+Whisper API: For accurate speech-to-text conversion.
+ChatGPT API: To generate intelligent and contextually appropriate text responses.
 
 ### Sitemap
 
-List the pages of your app with brief descriptions. You can show this visually, or write it out.
+Sign In & Sign Up: Initial page upon launch for authorization and authentication. 
+Home Page: Introduction to EchoLingo and its capabilities.
+User Dashboard: Personalized user space to manage settings and view interaction history.
+Language Settings: Where users can select and manage their preferred languages.
+Help and Support: Resources for user assistance and FAQs.
 
 ### Mockups
 
@@ -36,20 +50,53 @@ Provide visuals of your app's screens. You can use tools like Figma or pictures 
 
 ### Data
 
-Describe your data and the relationships between them. You can show this visually using diagrams, or write it out. 
+User Profiles: Information about users, including language preferences and interaction history.
+Interaction Logs: Records of user interactions with EchoLingo for improving personalization.
 
 ### Endpoints
 
-List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
+/api/users: For user management (GET, POST, PUT).
+/api/translations: To handle translation requests (POST).
+/api/auth: For handling authentication (POST for login, GET for logout).
 
 ### Auth
 
-Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented.
+Using Passport.js, EchoLingo will implement secure authentication for user accounts. This includes login, logout, and session management, ensuring user data privacy and security.
 
 ## Roadmap
 
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
+# November 16-17: Project Setup
+Initialize the project structure.
+Set up the React frontend and Node.js backend with Express.
+Configure Passport.js for authentication.
+
+# November 18-20: Basic Functionality
+Develop basic frontend interface with React.
+Implement simple backend logic for user registration and login.
+Set up MySQL database with Knex.js and create basic schemas (e.g., users, interactions).
+
+# November 21-22: API Integration
+Integrate Whisper API for speech-to-text functionality.
+Integrate ChatGPT API for generating responses.
+Test API integrations with basic use cases.
+
+# November 23-24: Core Features Development
+Implement the core features like real-time translation and voice-activated commands.
+Enhance user dashboard for language settings and interaction history.
+
+# November 25-26: Testing and Refinement
+Conduct thorough testing of all functionalities.
+Refine the user interface based on test feedback.
+Debug and fix any identified issues.
+
+# November 27-28: Finalization and Documentation
+Make final adjustments based on testing.
+Prepare comprehensive documentation for the application.
+Deploy the application to a suitable hosting platform.
 
 ## Nice-to-haves
 
-Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing.
+Voice Customization: Options for different voice types and accents for the assistant.
+Offline Functionality: Basic offline capabilities for essential functions.
+Advanced Analytics: Detailed analytics of user interactions for enhanced personalization.
+Community Forum: A platform for users to share tips and language learning resources.
