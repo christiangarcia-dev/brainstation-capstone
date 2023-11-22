@@ -1,3 +1,4 @@
+// translation controller 
 const performTranslation = (req, res) => {
     // TODO: integrate with Whisper API to perform speech-to-text translation
     res.status(200).json({ message: "Translation performed" });

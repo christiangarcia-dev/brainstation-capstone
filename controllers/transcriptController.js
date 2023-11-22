@@ -1,3 +1,4 @@
+// transcript controller 
 const saveTranscript = (req, res) => {
     // TODO: implement save transcript logic
     res.status(200).json({ message: "Save Transcript endpoint hit" });
