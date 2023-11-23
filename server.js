@@ -1,31 +1,25 @@
-// server.js 
+// server.js
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv").config();
-const axios = require('axios');
-const FormData = require('form-data');
-const fs = require('fs');
-const path = require('path');
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-const filePath = path.join("./", "audiotest.mp3");
-const model = "whisper-1";
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-const formData = new FormData();
-formData.append("model", model);
-formData.append("file", fs.createReadStream(filePath));
+const whisperRoutes = require('./routes/whisperRoutes');
+// const chatGptRoutes = require('./routes/gptRoutes');
 
-axios
-    .post("https://api.openai.com/v1/audio/transcriptions", formData, {
-        headers: {
-            Authorization: `Bearer ${OPENAI_API_KEY}`,
-            "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
-        },
-    })
-    .then((response) => {
-        console.log(response.data);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
+app.use('/api/whisper', whisperRoutes);
+// app.use('/api/chatgpt', chatGptRoutes);
 
+// Additional routes and middleware...
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
+app.get("/", (req, res) => {
+    res.send("Welcome to the EchoLingo server!");
+});
