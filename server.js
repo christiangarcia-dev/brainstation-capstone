@@ -1,40 +1,31 @@
 // server.js 
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config();
+const dotenv = require("dotenv").config();
+const axios = require('axios');
+const FormData = require('form-data');
+const fs = require('fs');
+const path = require('path');
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const filePath = path.join("./", "audiotest.mp3");
+const model = "whisper-1";
 
-const whisperRoutes = require('./routes/whisperRoutes');
-const chatGptRoutes = require('./routes/gptRoutes');
+const formData = new FormData();
+formData.append("model", model);
+formData.append("file", fs.createReadStream(filePath));
 
-app.use('/api/whisper', whisperRoutes);
-app.use('/api/chatgpt', chatGptRoutes);
-
-// Catch 404 and forward to error handler
-app.use((req, res, next) => {
-    const error = new Error("Not Found");
-    error.status = 404;
-    next(error);
-});
-
-// Error handler
-app.use((error, req, res, next) => {
-    res.status(error.status || 500);
-    res.json({
-        error: {
-            message: error.message
-        }
+axios
+    .post("https://api.openai.com/v1/audio/transcriptions", formData, {
+        headers: {
+            Authorization: `Bearer ${OPENAI_API_KEY}`,
+            "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+        },
+    })
+    .then((response) => {
+        console.log(response.data);
+    })
+    .catch((error) => {
+        console.error(error);
     });
-});
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
-
-app.get("/", (req, res) => {
-    res.send("Welcome to the EchoLingo server!");
-});
