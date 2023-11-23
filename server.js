@@ -7,6 +7,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const whisperRoutes = require('./routes/whisperRoutes');
+const chatGptRoutes = require('./routes/gptRoutes');
+
+app.use('/api/whisper', whisperRoutes);
+app.use('/api/chatgpt', chatGptRoutes);
+
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
     const error = new Error("Not Found");
