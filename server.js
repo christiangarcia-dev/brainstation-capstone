@@ -8,10 +8,10 @@ app.use(cors());
 app.use(express.json());
 
 const whisperRoutes = require('./routes/whisperRoutes');
-// const chatGptRoutes = require('./routes/gptRoutes');
+const chatGptRoutes = require('./routes/gptRoutes');
 
 app.use('/api/whisper', whisperRoutes);
-// app.use('/api/chatgpt', chatGptRoutes);
+app.use('/api/chatgpt', chatGptRoutes);
 
 // Additional routes and middleware...
 
