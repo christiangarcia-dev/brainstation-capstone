@@ -13,8 +13,6 @@ const chatGptRoutes = require('./routes/gptRoutes');
 app.use('/api/whisper', whisperRoutes);
 app.use('/api/chatgpt', chatGptRoutes);
 
-// Additional routes and middleware...
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
