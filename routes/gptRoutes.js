@@ -25,6 +25,7 @@ router.post('/translate', async (req, res) => {
         console.log("OpenAI Response:", response.data);
         const latestMessage = response.data.choices[0].message.content;
         res.json({ translatedText: latestMessage.trim() });
+        
     } catch (error) {
         console.error("Error from OpenAI API:", error.response ? error.response.data : error.message);
         res.status(500).json({ 

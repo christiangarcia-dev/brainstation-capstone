@@ -7,11 +7,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use('/audio', express.static('public/audio'));
+
 const whisperRoutes = require('./routes/whisperRoutes');
 const chatGptRoutes = require('./routes/gptRoutes');
+const ttsRoutes = require('./routes/ttsRoutes');
 
 app.use('/api/whisper', whisperRoutes);
 app.use('/api/chatgpt', chatGptRoutes);
+app.use('/api/tts', ttsRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
