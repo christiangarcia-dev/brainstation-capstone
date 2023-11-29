@@ -32,7 +32,7 @@ router.post('/transcribe', upload.single('file'), (req, res) => {
         },
     })
     .then((response) => {
-        fs.unlinkSync(req.file.path); // Remove the file after processing
+        fs.unlinkSync(req.file.path); 
         console.log("Transcription successful");
         res.json(response.data);
     })
