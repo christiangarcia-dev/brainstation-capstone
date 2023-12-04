@@ -20,10 +20,10 @@ router.post('/createspeech', async (req, res) => {
             headers: {
                 Authorization: `Bearer ${OPENAI_API_KEY}`,
             },
-            responseType: 'arraybuffer' // Ensures you get the data as a binary buffer
+            responseType: 'arraybuffer' 
         });
 
-        // Save the buffer as an audio file
+
         const audioFileName = `tts-${Date.now()}.mp3`; // Unique file name
         const audioFilePath = path.join(__dirname, '..', 'public', 'audio', audioFileName); // Adjust the path according to your server structure
 
