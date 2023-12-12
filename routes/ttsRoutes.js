@@ -29,7 +29,7 @@ router.post('/createspeech', async (req, res) => {
 
         fs.writeFileSync(audioFilePath, response.data); 
 
-        res.json({ audio_url: `http://localhost:8080/audio/${audioFileName}` });
+        res.json({ audio_url: `https://powerful-retreat-02048-8a481692b850.herokuapp.com/audio/${audioFileName}` });
 
     } catch (error) {
         console.error("Error from OpenAI API:", error.response ? error.response.data : error.message);
