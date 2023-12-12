@@ -24,12 +24,11 @@ router.post('/createspeech', async (req, res) => {
         });
 
 
-        const audioFileName = `tts-${Date.now()}.mp3`; // Unique file name
-        const audioFilePath = path.join(__dirname, '..', 'public', 'audio', audioFileName); // Adjust the path according to your server structure
+        const audioFileName = `tts-${Date.now()}.mp3`; 
+        const audioFilePath = path.join(__dirname, '..', 'public', 'audio', audioFileName); 
 
-        fs.writeFileSync(audioFilePath, response.data); // Save the audio file
+        fs.writeFileSync(audioFilePath, response.data); 
 
-        // Send back the URL to the saved audio file
         res.json({ audio_url: `http://localhost:8080/audio/${audioFileName}` });
 
     } catch (error) {
