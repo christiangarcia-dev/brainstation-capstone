@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const router = express.Router();
 const stream = require('stream');
-const { admin } = require('../server'); 
+const { admin } = require('../firebaseAdmin');
 
 router.post('/createspeech', async (req, res) => {
     console.log("Received TTS request:", req.body);
